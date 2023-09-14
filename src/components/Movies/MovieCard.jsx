@@ -4,6 +4,7 @@ import {
     CardHeader,
     CardBody,
     Typography,
+    Tooltip
 } from "@material-tailwind/react";
 import { FaPlay, FaStarHalfAlt, FaStar } from 'react-icons/fa'
 import Genres from '../Genres/Genres';
@@ -26,13 +27,18 @@ const MovieCard = ({ Movie }) => {
                 />
 
             </CardHeader>
+
             <div className='relative h-10 w-full'>
-                <Link to={"/details/"+Movie.id}>
-                    <div className='absolute right-0 -top-6 bg-red-500 p-6 rounded-full text-white hover:bg-red-600 cursor-pointer'>
-                        <FaPlay />
-                    </div>
+                <Link to={"/details/" + Movie.id}>
+                    <Tooltip content="View Details"
+                        placement="bottom">
+                        <div className='absolute right-0 -top-6 bg-red-500 p-6 rounded-full text-white hover:bg-red-600 cursor-pointer'>
+                            <FaPlay />
+                        </div>
+                    </Tooltip>
                 </Link>
             </div>
+
             <CardBody>
 
                 <div className='flex text-xs items-center justify-between'>
