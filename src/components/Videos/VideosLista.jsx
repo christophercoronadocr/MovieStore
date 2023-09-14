@@ -1,13 +1,15 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Video from './Video'
+import { KEYAPI } from '../../assets/js/APIKEY'
+
 
 
 const VideosLista = ({id}) => {
     const [EnlacesVideos, setEnlacesVideos] = useState(null)
 
     useEffect(() => {
-        axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=830bd4ba66c0738611021ca14c18faaf`)
+        axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?${KEYAPI}`)
         .then((res) => {
             if (res.data.results.length > 3) {
                 let array = new Array();

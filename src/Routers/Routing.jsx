@@ -7,7 +7,7 @@ import {
 import HomePage from '../Pages/HomePage';
 import DetailsPage from '../Pages/DetailsPage';
 import { instancia, instanciaByText } from '../assets/js/ConfigAxios';
-
+import { KEYAPI } from '../assets/js/APIKEY';
 
 
 const Routing = () => {
@@ -24,7 +24,7 @@ const Routing = () => {
   }, [])
 
   const searchMovies = (nameMovie) => {
-    instanciaByText.get(`/movie?api_key=830bd4ba66c0738611021ca14c18faaf&query=${nameMovie}`).then((res) => {
+    instanciaByText.get(`/movie?${KEYAPI}&query=${nameMovie}`).then((res) => {
       setMovieList(res.data.results)
     }).catch((err) => {
       console.log(err);

@@ -5,6 +5,7 @@ import { Card, CardBody, CardHeader, Tooltip } from '@material-tailwind/react'
 import VideosLista from '../components/Videos/VideosLista'
 import { FaArrowLeft } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
+import { KEYAPI } from '../assets/js/APIKEY'
 
 
 const DetailsPage = () => {
@@ -12,7 +13,7 @@ const DetailsPage = () => {
   const { id } = useParams()
 
   useEffect(() => {
-    axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=830bd4ba66c0738611021ca14c18faaf`)
+    axios.get(`https://api.themoviedb.org/3/movie/${id}?${KEYAPI}`)
       .then((res) => {
         setMovie(res.data);
       }).catch((err) => {
